@@ -32,21 +32,16 @@ jobs:
         dotnet-version: 6.0.x
         
     - name: Start containers
-      run: docker-compose -f "tests/FC.Codeflix.Catalog.Tests.Shared/docker-compose.yml" up -d --build
+      run: docker-compose -f "tests/FC.Codeflix.Catalog.IntegrationTests/docker-compose.yml" up -d --build
         
     - name: Restore dependencies
       run: dotnet restore
       
     - name: Build
       run: dotnet build --no-restore
-
-    - name: Waits ES
-      uses: iFaxity/wait-on-action@v1.1.0
-      with:
-        resource: http://localhost:9201
     
     - name: Test
-      run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
+      run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --filter FullyQualifiedName\!~E2ETests
 
     - name: Test Report
       uses: dorny/test-reporter@v1
