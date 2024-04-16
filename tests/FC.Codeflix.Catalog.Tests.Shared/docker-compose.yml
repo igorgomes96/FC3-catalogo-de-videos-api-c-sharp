@@ -47,8 +47,6 @@ services:
     depends_on:
       - kafka
     entrypoint: [ '/bin/sh', '-c' ]
-    networks:
-      - catalog_api_tests
     command: |
       "
       # blocks until kafka is reachable
@@ -59,6 +57,3 @@ services:
 
       kafka-topics --bootstrap-server kafka:29092 --list
       "
-      
-networks:
-  catalog_api_tests:

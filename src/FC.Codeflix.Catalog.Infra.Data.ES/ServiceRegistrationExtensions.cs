@@ -14,7 +14,6 @@ public static class ServiceRegistrationExtensions
     {
         var connectionString = configuration
             .GetConnectionString("ElasticSearch");
-        Console.WriteLine("ES connection: " + connectionString);
         var uri = new Uri(connectionString!);
         var connectionSettings = new ConnectionSettings(uri)
             .DefaultMappingFor<CategoryModel>(i => i
