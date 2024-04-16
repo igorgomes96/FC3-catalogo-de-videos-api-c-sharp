@@ -39,6 +39,11 @@ jobs:
       
     - name: Build
       run: dotnet build --no-restore
+
+    - name: Waits ES
+      uses: iFaxity/wait-on-action@v1.1.0
+      with:
+        resource: http://localhost:9201
     
     - name: Test
       run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
