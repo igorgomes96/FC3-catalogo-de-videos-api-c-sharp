@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.6'
 
 services:
   elasticsearch:
@@ -61,4 +61,5 @@ services:
       "
       
 networks:
-  catalog_api_tests:
+  default:
+    name: catalog_api_tests
