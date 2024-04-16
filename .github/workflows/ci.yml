@@ -5,7 +5,7 @@ name: CI do projeto de API Catalog Admin - FC3
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev/ci" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
