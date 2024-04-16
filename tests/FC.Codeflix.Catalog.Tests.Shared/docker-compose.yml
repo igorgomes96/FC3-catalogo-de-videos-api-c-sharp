@@ -61,4 +61,5 @@ services:
       "
       
 networks:
-  catalog_api_tests:
+  default:
+    name: catalog_api_tests
