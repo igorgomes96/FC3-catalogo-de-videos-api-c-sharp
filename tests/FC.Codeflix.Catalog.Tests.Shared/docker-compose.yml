@@ -6,7 +6,7 @@ services:
     container_name: elk_es01_tests
     restart: unless-stopped
     volumes:
-      - .docker/es01:/usr/share/elasticsearch/data
+      - .docker/es01:/var/lib/elasticsearch/data
     environment:
       - "discovery.type=single-node"
     ports:
