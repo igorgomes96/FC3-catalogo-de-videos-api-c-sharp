@@ -62,4 +62,3 @@ services:
       
 networks:
   catalog_api_tests:
-    external: true  
