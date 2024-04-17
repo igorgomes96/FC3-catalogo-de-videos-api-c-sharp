@@ -26,7 +26,7 @@ public class CastMemberDataGenerator : DataGeneratorBase
             .Select(index =>
             {
                 var model = CastMemberModel.FromEntity(GetValidCastMember());
-                model.CreatedAt = DateTime.UtcNow.AddSeconds(index);
+                model.CreatedAt = DateTime.UtcNow.AddMinutes(index);
                 return model;
             })
             .ToList();
